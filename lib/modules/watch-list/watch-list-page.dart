@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_project_g/watch-list-item.dart';
-import 'package:movies_project_g/watch-list.dart';
+import 'package:movies_project_g/components/watch-list-item.dart';
+import 'package:movies_project_g/models/watch-list.dart';
 
-import 'database-helper.dart';
-import 'movie-details-page.dart';
+import '../../shared/network/local/database-helper.dart';
+import '../movie-details/movie-details-page.dart';
 
 class WatchListPage extends StatefulWidget {
   const WatchListPage({Key? key}) : super(key: key);

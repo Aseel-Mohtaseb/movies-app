@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:movies_project_g/database-helper.dart';
-import 'package:movies_project_g/movie-details.dart';
+import 'package:movies_project_g/shared/network/local/database-helper.dart';
+import 'package:movies_project_g/models/movie-details.dart';
 import 'package:http/http.dart' as http;
-import 'package:movies_project_g/watch-list.dart';
+import 'package:movies_project_g/models/watch-list.dart';
 
 class MovieDetailsPage extends StatefulWidget {
   final String movieId;

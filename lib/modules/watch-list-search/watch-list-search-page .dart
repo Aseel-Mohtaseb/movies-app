@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_project_g/watch-list-search-result-page.dart';
-import 'package:movies_project_g/carousel-slider.dart';
+import 'package:movies_project_g/modules/watch-list-search-result/watch-list-search-result-page.dart';
+import 'package:movies_project_g/components/carousel-slider.dart';
 
 class WatchListSearchPage extends StatefulWidget {
   const WatchListSearchPage({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_project_g/watch-list.dart';
+import 'package:movies_project_g/models/watch-list.dart';
 
 class WatchListItem extends StatelessWidget{
   final WatchList watchList;

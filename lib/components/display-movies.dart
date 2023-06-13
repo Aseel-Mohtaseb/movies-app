@@ -1,15 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
-import 'package:movies_project_g/movie-details-page.dart';
+import 'package:movies_project_g/modules/movie-details/movie-details-page.dart';
 import 'movie-item.dart';
-import 'movie.dart';
+import '../models/movie.dart';
 
 class Display extends StatefulWidget {
-
   final String movieName;
 
   const Display({required this.movieName});
@@ -86,7 +84,6 @@ class DisplayState extends State<Display> {
                   });
             }
             else if (snapshot.hasError){
-              // return Text("Error: " + snapshot.error.toString());
               return Text(snapshot.error.toString());
             }
             else{

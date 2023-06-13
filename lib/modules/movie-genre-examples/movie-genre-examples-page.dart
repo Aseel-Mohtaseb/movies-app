@@ -1,39 +1,42 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_project_g/watch-list-item.dart';
-import 'package:movies_project_g/watch-list.dart';
+import 'package:movies_project_g/components/watch-list-item.dart';
+import 'package:movies_project_g/models/watch-list.dart';
+import '../../shared/network/local/database-helper.dart';
+import '../movie-details/movie-details-page.dart';
 
-import 'database-helper.dart';
-import 'movie-details-page.dart';
-
-class WatchListSearchResultPage extends StatefulWidget {
-  String movie;
-  WatchListSearchResultPage(this.movie);
-  // const WatchListSearchResultPage({Key? key}) : super(key: key);
+class MovieGenreExamplesPage extends StatefulWidget {
+  String genre;
+  MovieGenreExamplesPage(this.genre);
 
   @override
-  _WatchListSearchResultPageState createState() => _WatchListSearchResultPageState();
+  _MovieGenreExamplesPageState createState() => _MovieGenreExamplesPageState();
 }
 
-class _WatchListSearchResultPageState extends State<WatchListSearchResultPage> {
+class _MovieGenreExamplesPageState extends State<MovieGenreExamplesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Watch List'),
-        ),
-      body: FutureBuilder(
-            future: DatabaseProvider.db.getSearchedWatchList(widget.movie),
+        title: Text(widget.genre + ' movies'),
+      ),
+      body: Column(
+        children: [
+          FutureBuilder(
+            future: DatabaseProvider.db.getMovieByGenre(widget.genre),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 List<WatchList> watchList = snapshot.data as List<WatchList>;
                 if (watchList.isNotEmpty) {
-                  return ListView.builder(
+                  return Container(
+                    height: 500,
+                    child: ListView.builder(
                       itemCount: watchList.length,
                       itemBuilder: (BuildContext context, int index) {
                         return GestureDetector(
                           key: Key(watchList[index].title),
                           child: WatchListItem(watchList: watchList[index]),
+
                           onTap: (){
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) => MovieDetailsPage(movieId: watchList[index].imdbID),)
@@ -41,11 +44,13 @@ class _WatchListSearchResultPageState extends State<WatchListSearchResultPage> {
                           },
                         );
                       },
+                    ),
                   );
                 } else {
                   return Center(
-                    child: Text('No ' + widget.movie + ' movies in your watch list',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, ))
+                    child: Text('No ' + widget.genre + ' movies in your watch list', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17, ),)
                   );
+
                 }
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
@@ -53,6 +58,8 @@ class _WatchListSearchResultPageState extends State<WatchListSearchResultPage> {
               return const CircularProgressIndicator();
             },
           ),
+        ],
+      ),
     );
   }
 }

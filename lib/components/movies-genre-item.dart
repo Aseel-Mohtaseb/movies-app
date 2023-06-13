@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_project_g/movie-genre-examples-page.dart';
+import 'package:movies_project_g/modules/movie-genre-examples/movie-genre-examples-page.dart';
 
 
 class MoviesGenreItem extends StatelessWidget {

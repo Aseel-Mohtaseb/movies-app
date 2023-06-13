@@ -1,4 +1,4 @@
-import 'package:movies_project_g/watch-list.dart';
+import 'package:movies_project_g/models/watch-list.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseProvider {
@@ -121,7 +121,6 @@ class DatabaseProvider {
           movies.add(movie);
       }
     }
-
     return movies;
   }
 

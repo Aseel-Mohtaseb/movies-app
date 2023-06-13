@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_project_g/carousel-slider.dart';
-import 'package:movies_project_g/watch-list-page.dart';
-import 'package:movies_project_g/watch-list-search-page%20.dart';
-import 'display-movies.dart';
-import 'movies-genre-page.dart';
+import 'package:movies_project_g/components/carousel-slider.dart';
+import 'package:movies_project_g/modules/watch-list/watch-list-page.dart';
+import 'package:movies_project_g/modules/watch-list-search/watch-list-search-page%20.dart';
+import 'components/display-movies.dart';
+import 'modules/movies-genre/movies-genre-page.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +21,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.pink,
       ),
       home: SearchMovie(title: 'Search for a Movie'),
-      // home: Sliderr(),
     );
   }
 }

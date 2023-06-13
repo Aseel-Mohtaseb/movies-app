@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_project_g/movies-genre-item.dart';
+import 'package:movies_project_g/components/movies-genre-item.dart';
 
 class MoviesGenrePage extends StatelessWidget {
   const MoviesGenrePage({Key? key}) : super(key: key);
